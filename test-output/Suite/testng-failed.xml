@@ -6,13 +6,6 @@
   </listeners>
   <test thread-count="2" name="Test(failed)" parallel="classes">
     <classes>
-      <class name="com.test.ng.CreateAndSendMail">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="createMail"/>
-        </methods>
-      </class> <!-- com.test.ng.CreateAndSendMail -->
       <class name="com.test.ng.DeleteMail">
         <methods>
           <include name="tearDown"/>

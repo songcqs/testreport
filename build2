@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="testTestNG" default="run" basedir=".">
-    <property name="testng.dir" value="E:\Javaworkspace\testTestNG"/>  
-    <property name="testng.output.dir" value="E:\Javaworkspace\testTestNG\test-output"/> 
+<project name="testmaven" default="run" basedir=".">
+    <property name="testng.dir" value="E:\Javaworkspace\testmaven"/>  
+    <property name="testng.output.dir" value="E:\Javaworkspace\testmaven\test-output"/> 
     <path id="run.classpath">
         <fileset dir="jar">
             <include name="testng\*.jar"></include>
