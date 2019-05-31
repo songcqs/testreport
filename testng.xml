@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="classes" thread-count="2">
+<!-- <suite name="Suite" parallel="classes" thread-count="2"> -->
+<suite name="Suite" >
 	<listeners>
 		<listener class-name="com.test.lib.RetryListener"></listener>
 		<!-- <listener class-name="com.test.lib.TestngListenerScreenShot"></listener> -->
     </listeners> 
-	<test name="Test">
+	<test name="Test" thread-count="2">
 		<!-- <packages>
 			<package name="com.test.ng"></package>
 		</packages> -->
