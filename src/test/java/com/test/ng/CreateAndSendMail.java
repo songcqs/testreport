@@ -13,7 +13,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.test.lib.LibLogin;
-import com.test.lib.MyRetry;
 
 public class CreateAndSendMail {
 	WebDriver driver;
@@ -41,7 +40,7 @@ public class CreateAndSendMail {
 	 * 
 	 * @throws InterruptedException
 	 */
-	@Test(retryAnalyzer = MyRetry.class) // 失败重跑
+	@Test(groups = { "CreateAndSendMail.createMail" })
 	public void createMail() throws InterruptedException {
 		System.out.println("createandmail test");
 		String username = "a1955031205130210b";

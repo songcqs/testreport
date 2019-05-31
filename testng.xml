@@ -3,15 +3,15 @@
 <!-- <suite name="Suite" parallel="classes" thread-count="2"> -->
 <suite name="Suite" >
 	<listeners>
-		<listener class-name="com.test.lib.RetryListener"></listener>
-		<!-- <listener class-name="com.test.lib.TestngListenerScreenShot"></listener> -->
+		<listener class-name="com.test.lib.RetryListener"/>	<!-- 重跑监听 -->
+		<listener class-name="com.test.lib.TestngListenerScreenShot"/>	<!-- 截图监听 -->
     </listeners> 
 	<test name="Test" thread-count="5">
 		<!-- <packages>
 			<package name="com.test.ng"></package>
 		</packages> -->
     <classes>
-      <class name="com.test.ng.DeleteMail"/>
+     <!--  <class name="com.test.ng.DeleteMail"/> -->
       <class name="com.test.ng.TestLoginFail"/>
       <class name="com.selenium.test.AppTest"/>
       <class name="com.test.ng.LoginTestNG"/>

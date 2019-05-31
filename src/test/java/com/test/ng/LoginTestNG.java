@@ -11,7 +11,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.test.lib.LibLogin;
-import com.test.lib.MyRetry;
 
 public class LoginTestNG {
 	WebDriver driver;
@@ -22,7 +21,7 @@ public class LoginTestNG {
 	 * @throws InterruptedException
 	 */
 //	@Test(invocationCount = 2, invocationTimeOut = 10000)//执行两次时间不超过10s
-	@Test(retryAnalyzer = MyRetry.class)
+	@Test(groups = { "LoginTestNG.login" })
 	public void login() throws InterruptedException {
 		System.out.println("test login");
 		String username = "songcqs001";

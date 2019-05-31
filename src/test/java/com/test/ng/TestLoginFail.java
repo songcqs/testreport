@@ -14,7 +14,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.test.lib.LibLogin;
-import com.test.lib.MyRetry;
 
 public class TestLoginFail {
 	WebDriver driver;
@@ -45,7 +44,7 @@ public class TestLoginFail {
 	 * 
 	 * @throws InterruptedException
 	 */
-	@Test(retryAnalyzer = MyRetry.class) // 失败重跑
+	@Test(groups = { "TestLoginFail.testLoginfail" })
 	public void testLoginfail() throws InterruptedException {
 		System.out.println("loginfail test");
 		for (String[] item : this.data) {

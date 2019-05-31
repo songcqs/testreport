@@ -57,5 +57,73 @@
 	    <version>8.7</version>
 	</dependency>
 	
+	<!-- reportNg的依赖包 关联testNg ，这个包的主要作用就是对testng原生报告的美化-->
+	<dependency>
+		<groupId>org.uncommons</groupId>
+		<artifactId>reportng</artifactId>
+		<version>1.1.4</version>
+		<exclusions>
+			<exclusion>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	
+	<!-- 依赖Guice -->
+	<dependency>
+		<groupId>com.google.inject</groupId>
+		<artifactId>guice</artifactId>
+		<version>4.0-beta5</version>
+	</dependency>
+	
   </dependencies>
+
+  <build>
+	<plugins>
+		<plugin>
+			<!-- 使用maven-compiler-plugin插件可以指定项目源码的jdk版本，编译后的jdk版本，以及编码 -->
+			<!-- 指定maven编译的jdk版本,如果不指定,maven3默认用jdk 1.5 maven2默认用jdk1.3 -->
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>2.3.2</version> 
+			<configuration>
+				<encoding>UTF-8</encoding>
+			</configuration>
+		</plugin>
+	
+		<!-- 添加插件 关联testNg.xml -->
+		<plugin>
+			<!-- maven-surefire-plugin是maven里执行测试用例的插件，不显示配置就会用默认配置。 -->
+			<!-- surefire 插件用来在maven构建生命周期的test phase执行一个应用的单元测试。它会产生两种不同形式的测试结果报告： 
+				1）.纯文本 2）.xml文件格式的 默认情况下，这些文件生成在工程的${basedir}/target/surefire-reports，目录下 
+				（basedir指的是pom文件所在的目录）。 它可以运行任何testNG,Junit,pojo写的单元测试 -->
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>2.18.1</version>
+			<configuration>
+				<properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                        
+                         <property>
+                            <name>listener</name>
+                            <value>org.uncommons.reportng.HTMLReporter,
+                                org.uncommons.reportng.JUnitXMLReporter</value>
+                        </property>
+                    </properties>
+                    <suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<!-- <suiteXmlFile>res/${xmlFileName}</suiteXmlFile> -->
+						<!--此处testng.xml即为要运行的testng.xml文件 -->
+                    </suiteXmlFiles>
+                    <workingDirectory>target/</workingDirectory>
+                    
+			</configuration>
+		</plugin>
+	</plugins>
+  </build>
+  
 </project>
